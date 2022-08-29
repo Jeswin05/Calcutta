@@ -2,8 +2,31 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Calculator implements ActionListener   {
 
-public class Calculator {
+
+  JButton clrbutton;
+  JButton divisionbutton;
+  JButton multiplybutton;
+  JButton additionbutton;
+  JButton multiplybuttton;
+  JButton subtractionbutton;
+  JButton ninebutton;
+  JButton eightbutton;
+  JButton sevenbutton;
+  JButton sixbutton;
+  JButton fivebutton;
+  JButton fourbutton;
+  JButton threebutton;
+  JButton twobutton;
+  JButton onebutton;
+  JButton zerobutton;
+  JButton decimalbutton;
+  JButton enterbutton;
+
+  JLabel displayLabel;
 
   public Calculator() {
     Color bgcolor = Color.decode("#54BAB9");
@@ -13,7 +36,7 @@ public class Calculator {
     frame.setSize(450, 700);
     frame.setLayout(null);
 
-    JLabel displayLabel = new JLabel();
+     displayLabel = new JLabel();
     displayLabel.setBounds(30, 50, 380, 80);
     displayLabel.setBackground(labelcolor);
     displayLabel.setOpaque(true);
@@ -25,20 +48,24 @@ public class Calculator {
 
 
       //ClearButton
-      JButton clrbutton=new JButton("C");
+      clrbutton=new JButton("C");
       clrbutton.setBounds(30,150,80,80);
+      clrbutton.addActionListener(this);
 
       //DivisionButton
-      JButton divisionbutton=new JButton("/");
+      divisionbutton=new JButton("/");
       divisionbutton.setBounds(130,150,80,80);
+      divisionbutton.addActionListener(this);
 
       //MultiplyButton
-      JButton multiplybutton=new JButton("X");
+      multiplybutton=new JButton("X");
       multiplybutton.setBounds(230,150,80,80);
+      multiplybutton.addActionListener(this);
 
       //SubtractionButton
-      JButton subtractionbutton=new JButton("-");
+      subtractionbutton=new JButton("-");
       subtractionbutton.setBounds(330,150,80,80);
+      subtractionbutton.addActionListener(this);
 
 
     //
@@ -47,20 +74,24 @@ public class Calculator {
 
 
       //Sevenbutton
-      JButton sevenbutton=new JButton("7");
+      sevenbutton=new JButton("7");
       sevenbutton.setBounds(30,250,80,80);
+      sevenbutton.addActionListener(this);
 
       //EightButton
-      JButton eightbutton=new JButton("8");
+      eightbutton=new JButton("8");
       eightbutton.setBounds(130,250,80,80);
+      eightbutton.addActionListener(this);
 
       //NineButton
-      JButton ninebutton=new JButton("9");
+      ninebutton=new JButton("9");
       ninebutton.setBounds(230,250,80,80);
+      ninebutton.addActionListener(this);
 
       //additionButton
-      JButton additionbutton=new JButton("+");
+      additionbutton=new JButton("+");
       additionbutton.setBounds(330,250,80,180);
+      additionbutton.addActionListener(this);
 
 
     //
@@ -69,16 +100,19 @@ public class Calculator {
 
 
       //Fourbutton
-      JButton fourbutton=new JButton("4");
+       fourbutton=new JButton("4");
       fourbutton.setBounds(30,350,80,80);
+      fourbutton.addActionListener(this);
 
       //FiveButton
-      JButton fivebutton=new JButton("5");
+       fivebutton=new JButton("5");
       fivebutton.setBounds(130,350,80,80);
+      fivebutton.addActionListener(this);
 
       //SixButton
-      JButton sixbutton=new JButton("6");
+       sixbutton=new JButton("6");
       sixbutton.setBounds(230,350,80,80);
+      sixbutton.addActionListener(this);
 
     
     //
@@ -87,20 +121,24 @@ public class Calculator {
 
 
       //OneButton
-      JButton onebutton=new JButton("1");
+       onebutton=new JButton("1");
       onebutton.setBounds(30,450,80,80);
+      onebutton.addActionListener(this);
 
       //TwoButton
-      JButton twobutton=new JButton("2");
+       twobutton=new JButton("2");
       twobutton.setBounds(130,450,80,80);
+      twobutton.addActionListener(this);
 
       //ThreeButton
-      JButton threebutton=new JButton("3");
+       threebutton=new JButton("3");
       threebutton.setBounds(230,450,80,80);
+      threebutton.addActionListener(this);
 
       //EnterButton
-      JButton enterbutton=new JButton("=");
+       enterbutton=new JButton("=");
       enterbutton.setBounds(330,450,80,180);
+      enterbutton.addActionListener(this);
 
 
     //
@@ -109,12 +147,14 @@ public class Calculator {
 
 
       //ZeroButton
-      JButton zerobutton=new JButton("0");
+       zerobutton=new JButton("0");
       zerobutton.setBounds(30,550,180,80);
+      zerobutton.addActionListener(this);
 
       //decimalbutton
-      JButton decimalbutton=new JButton(".");
+       decimalbutton=new JButton(".");
       decimalbutton.setBounds(230,550,80,80);
+      decimalbutton.addActionListener(this);
 
 
 
@@ -146,4 +186,49 @@ public class Calculator {
   public static void main(String[] args) {
     new Calculator();
   }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource()==clrbutton){
+      displayLabel.setText("");
+    }else   if (e.getSource()==divisionbutton){
+      displayLabel.setText(displayLabel.getText()+"/");
+    }else   if (e.getSource()==multiplybutton){
+      displayLabel.setText(displayLabel.getText()+"X");
+    }else   if (e.getSource()==subtractionbutton){
+      displayLabel.setText(displayLabel.getText()+"-");
+    }else   if (e.getSource()==additionbutton){
+      displayLabel.setText(displayLabel.getText()+"+");
+    }else   if (e.getSource()==enterbutton){
+      displayLabel.setText(displayLabel.getText()+"");
+    }else   if (e.getSource()==sevenbutton){
+      displayLabel.setText(displayLabel.getText()+"7");
+    }else   if (e.getSource()==eightbutton){
+      displayLabel.setText(displayLabel.getText()+"8");
+    }else   if (e.getSource()==ninebutton){
+      displayLabel.setText(displayLabel.getText()+"9");
+    }else   if (e.getSource()==fourbutton){
+      displayLabel.setText(displayLabel.getText()+"4");
+    }else   if (e.getSource()==fivebutton){
+      displayLabel.setText(displayLabel.getText()+"5");
+    }else   if (e.getSource()==sixbutton){
+      displayLabel.setText(displayLabel.getText()+"6");
+    }else   if (e.getSource()==onebutton){
+      displayLabel.setText(displayLabel.getText()+"1");
+    }else   if (e.getSource()==twobutton){
+      displayLabel.setText(displayLabel.getText()+"2");
+    }else   if (e.getSource()==threebutton){
+      displayLabel.setText(displayLabel.getText()+"3");
+    }else   if (e.getSource()==zerobutton){
+      displayLabel.setText(displayLabel.getText()+"0");
+    }else   if (e.getSource()==decimalbutton){
+      displayLabel.setText(displayLabel.getText()+".");
+    }
+    
+  }
+
+  
+  
+
+ 
 }
